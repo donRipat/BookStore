@@ -1,9 +1,15 @@
 {% extends 'main/base.html' %}
 
 {% block title %}
-Главная
+{{title}}
 {% endblock %}
 
 {% block content %}
 <h1>Главная</h1>
+{% for book in books %}
+    <h3>{{book.title}}</h3>
+    <p>Жанр: {{book.genres}}</p>
+    <p>Рейтинг: {{book.rating}}</p>
+    <p>Цена: {{book.price}}</p>
+{% endfor %}
 {% endblock %}

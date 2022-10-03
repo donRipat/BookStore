@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Book
+
 
 # Create your views here.
 
 
 def index(request):
-    return render(request, 'main/index.html')
+    books = Book.objects.all()
+    return render(request, 'main/index.html', {'title': 'Главная', 'books': books})
 
 
 def sign_in(request):
