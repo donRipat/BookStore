@@ -4,12 +4,43 @@
 {{title}}
 {% endblock %}
 
+
 {% block content %}
+
+
+<!--
+<table>
+    <colgroup>
+        <col width="50px">
+        <col width="30px">
+        <col width="30px">
+    </colgroup>
+    <thead>
+        <th>
+            Авиакомпания
+        </th>
+        <th>
+            Рейтинг
+        </th>
+    </thead>
+    <tbody>
+    {% for book in books %}
+    <tr>
+        <td><h1>{{book.title}}</h1></td>
+        <td><h2>{{book.genres}}</h2></td>
+        <td><h1>{{book.price}}</h1></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+-->
+
 <h1>Главная</h1>
 {% for book in books %}
     <h3>{{book.title}}</h3>
     <p>Жанр: {{book.genres}}</p>
     <p>Рейтинг: {{book.rating}}</p>
     <p>Цена: {{book.price}}</p>
+    <img src={{book.img}} width="300" height="300">
 {% endfor %}
 {% endblock %}

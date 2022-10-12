@@ -10,6 +10,9 @@ class Book(models.Model):
     genres = models.CharField(max_length=500)
     rating = models.CharField(max_length=4)
     price = models.CharField(max_length=10)
+    img = models.CharField(max_length=150)
+    pages_num = models.SmallIntegerField()
+
 
     def __str__(self):
         return self.title
