@@ -20,7 +20,10 @@
         {% for row in s %}
         <td class="table-cell">
             <a href="book/{{row.id}}">
-                <img src={{row.img}} height="200">
+                <img src="{{row.img}}" height="200">
+                <!--
+                <img src="/static/main/img/{{row.id}}.png" height="200">
+                -->
             </a>
             <h3>{{row.title}}</h3>
             <p>{{row.genres}}</p>
