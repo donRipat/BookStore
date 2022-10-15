@@ -13,7 +13,5 @@ class Book(models.Model):
     img = models.CharField(max_length=150)
     pages_num = models.SmallIntegerField()
 
-
     def __str__(self):
         return self.title
-
