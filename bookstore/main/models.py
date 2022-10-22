@@ -33,9 +33,12 @@ class Book(models.Model):
         return self.title
 
 
-class User(models.Model):
-    name = models.CharField(max_length=30, unique=True)
-    password = models.CharField(max_length=30)
+class Order(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    phone_num = models.CharField(max_length=20, default='')
+    address = models.CharField(max_length=500, default='')
+    hints = models.CharField(max_length=500, default='')
+    price = models.DecimalField(max_digits=7, decimal_places=2, default=0)
 
     def __str__(self):
-        return self.name
+        return self.phone_num

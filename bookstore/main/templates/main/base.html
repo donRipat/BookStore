@@ -123,9 +123,44 @@
         .my-table{
         }
 
+        .bp-item{
+          display: block;
+        }
+
+        .push-right{
+          float: right;
+        }
+
+        .push-left{
+          float: left;
+        }
+
+        .text-on-page{
+          width: 50%;
+        }
+
+        .pic-on-page{
+          justify-content: center;
+          text-align: center;
+          margin: 0 auto;
+        }
+
+        .ex{
+          display: flex;
+          width: 100%;
+        }
+
         .table-cell{
           vertical-align: top;
           padding: 0 20px 40px 20px
+        }
+
+        .offset-left{
+          margin-left: 10px;
+        }
+
+        .offset-right{
+          margin-right: 130px;
         }
       </style>
 
@@ -151,20 +186,9 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Главная</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
           </ul>
-          <form method="post" class="d-flex d-float-left" role="search">
-            {% csrf_token %}
-            <input class="form-control me-2" type="text" placeholder="Жанр" aria-label="search" name="genre">
-            <input class="form-control me-2" type="text" placeholder="Автор" aria-label="search" name="author">
-            <input class="form-control me-2" type="text" placeholder="Название" aria-label="search" name="title">
-            <button class="btn btn-outline-success" type="submit">Поиск</button>
-          </form>
+          {% block search %}
+          {% endblock %}
         </div>
       </div>
     </nav>
@@ -179,7 +203,8 @@
 
 
     <footer class="footer bg-dark">
-        <p class="text-muted">Какая-то информация про нас или не про нас или не информация</p>
+        <p class="text-muted push-left offset-left">BookStore, 2022</p>
+        <a class="text-muted offset-right" href="{% url 'cond' %}">Информация о работе сервиса</a>
     </footer>
   </body>
 </html>

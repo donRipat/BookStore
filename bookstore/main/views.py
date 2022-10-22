@@ -1,10 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Book
+from .models import Book, Order
 
 
 # Create your views here.
-
 
 def index(request):
     books = Book.objects.all().order_by('-bbe_score')
@@ -24,8 +22,7 @@ def index(request):
         if i % 3 == 0:
             strs.append([])
         strs[i // 3].append(newlist[i])
-    print(strs)
-    sign = 'Главная'
+    sign = 'Полный каталог доступных книг ' + f'({len(newlist)} кн.)'
     search = ''
     if title != '' or author != '' or genre != '':
         sign = ''
@@ -36,16 +33,16 @@ def index(request):
             search += f'среди авторов: "{author}" '
         if genre != '':
             search += f'среди жанров: "{genre}" '
-        search += f'({len(newlist)})'
+        search += f'({len(newlist)} кн.)'
     return render(request, 'main/index.html', {'title': 'Главная', 'books': strs, 'sign': sign, 'search': search})
 
 
 def book_page(request, book_id):
     book = get_book_by_id(book_id)
-    return render(request, 'main/book_page.html', {'book_page': book_page, 'book': book})
+    return render(request, 'main/book_page.html', {'book': book})
 
 
-#def logic (вынести сюда логику шапки и подвала)
+# def logic (вынести сюда логику шапки и подвала)
 
 
 def get_book_by_id(book_id):
@@ -57,20 +54,21 @@ def get_book_by_id(book_id):
     return book
 
 
-def user_page(request):
-    return render(request, 'main/user_page.html', {'title': 'Пользователь'})
+def ordering(request, book_id):
+    book = get_book_by_id(book_id)
+    if request.method == 'POST':
+        new_ord = Order.objects.create(book=Book.objects.get(id=book_id), phone_num=request.POST['phone'],
+                                       address=request.POST['address'], hints=request.POST['hints'], price=book.price)
+        new_ord.save()
+    return render(request, 'main/buy.html', {'book': book})
 
 
-def sign_in(request):
-    return render(request, 'main/sign_in.html')
+def success(request):
+    return render(request, 'main/taskfailedsuccessfully.html')
 
 
-def sign_up(request):
-    return render(request, 'main/sign_up.html')
-
-
-def test(request):
-    return render(request, 'main/test.html')
+def conditions(request):
+    return render(request, 'main/conditions.html')
 
 
 def about(request):

@@ -5,12 +5,23 @@
 {% endblock %}
 
 {% block content %}
-<h3>{{ book.author }}</h3>
-<h1>{{ book.title }}</h1>
-<img src="/static/main/img/{{book.book_id}}.jpg" height="400">
-<h3>Жанры:</h3>
-<h5>{{ book.genres }}</h5>
-<h3>Описание:</h3>
-<p>{{ book.description }}</p>
-<h4>{{ book.price }}$</h4>
+<div class="container">
+    <div class="bp-item push-right text-on-page">
+        <h4>{{ book.author }}</h4>
+        <h1>"{{ book.title }}"</h1>
+        <h3>Жанры:</h3>
+        <h5>{{ book.genres }}</h5>
+        <h4>{{ book.pages}} стр.</h4>
+        <h4>Средний рейтинг: {{book.rating}} / 5</h4>
+        <h4>{{ book.price }}$</h4>
+        <form>
+            <button class="btn btn-outline-success" type="submit" formaction="ordering/{{book.id}}">Оформить заказ</button>
+        </form>
+    </div>
+    <img align="middle" class="bp-item pic-on-page" src="/static/main/img/{{book.book_id}}.jpg" height="400">
+    <div class="ex">
+        <h3>Описание:</h3>
+    </div>
+    <p>{{ book.description }}</p>
+</div>
 {% endblock %}

@@ -1,0 +1,153 @@
+/* Desktop - 1 */
+
+position: relative;
+width: 1440px;
+height: 841px;
+
+background: #FFFFFF;
+
+
+/* BookStore */
+
+position: absolute;
+width: 154px;
+height: 42px;
+left: 643px;
+top: 162px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 32px;
+line-height: 42px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* NicePng_book-logo-png_7936442 2 */
+
+position: absolute;
+width: 969px;
+height: 863px;
+left: 880px;
+top: 72px;
+
+background: url(NicePng_book-logo-png_7936442.png);
+
+
+/* NicePng_book-logo-png_7936442 3 */
+
+position: absolute;
+width: 969px;
+height: 863px;
+left: -391px;
+top: -359px;
+
+background: url(NicePng_book-logo-png_7936442.png);
+
+
+/* Добро пожаловать в интернет-магазин BookStore! */
+
+position: absolute;
+width: 785px;
+height: 86px;
+left: 328px;
+top: 287px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 36px;
+line-height: 47px;
+text-align: center;
+text-transform: uppercase;
+
+color: #000000;
+
+
+
+/* Всё для Вашего удобства. */
+
+position: absolute;
+width: 245px;
+height: 24px;
+left: 598px;
+top: 442px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 26px;
+text-align: center;
+
+color: #525252;
+
+
+
+/* Здесь Вы сможете подобрать для себя любую книгу, любого жанра!  */
+
+position: absolute;
+width: 642px;
+height: 25px;
+left: 399px;
+top: 409px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 26px;
+text-align: center;
+
+color: #525252;
+
+
+
+/* Rectangle 1 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 251px;
+height: 82px;
+left: 595px;
+top: 535px;
+
+background: #222429;
+border: 2px solid #4FDB83;
+box-shadow: 0px 5px 11px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+
+
+/* NicePng_book-logo-png_7936442 1 */
+
+position: absolute;
+width: 101px;
+height: 90px;
+left: 670px;
+top: 72px;
+
+background: url(NicePng_book-logo-png_7936442.png);
+
+
+/* Перейти в каталог */
+
+position: absolute;
+width: 164px;
+height: 21px;
+left: 643px;
+top: 566px;
+
+font-family: 'IBM Plex Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 21px;
+/* identical to box height */
+text-align: center;
+
+color: #FFFFFF;
+
