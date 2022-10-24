@@ -7,5 +7,5 @@ urlpatterns = [
     path('book/<int:book_id>', views.book_page, name='book'),
     path('book/ordering/<int:book_id>', views.ordering, name='ordering'),
     path('conditions', views.conditions, name='cond'),
-    path('success', views.success, name='success')
+    path('book/ordering/<int:book_id>/success', views.success, name='success')
 ]

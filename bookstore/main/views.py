@@ -38,33 +38,27 @@ def index(request):
 
 
 def book_page(request, book_id):
-    book = get_book_by_id(book_id)
+    book = Book.objects.get(id=book_id)
     return render(request, 'main/book_page.html', {'book': book})
 
 
 # def logic (вынести сюда логику шапки и подвала)
 
 
-def get_book_by_id(book_id):
-    books = Book.objects.all()
-    book = Book.objects.all().first
-    for b in books:
-        if b.id == book_id:
-            book = b
-    return book
-
-
 def ordering(request, book_id):
-    book = get_book_by_id(book_id)
-    if request.method == 'POST':
-        new_ord = Order.objects.create(book=Book.objects.get(id=book_id), phone_num=request.POST['phone'],
-                                       address=request.POST['address'], hints=request.POST['hints'], price=book.price)
-        new_ord.save()
+    book = Book.objects.get(id=book_id)
     return render(request, 'main/buy.html', {'book': book})
 
 
-def success(request):
-    return render(request, 'main/taskfailedsuccessfully.html')
+def success(request, book_id):
+    this_book = Book.objects.get(id=book_id)
+    if request.method == 'POST':
+        new_ord = Order.objects.create(book=this_book, phone_num=request.POST['phone'], address=request.POST['address'],
+                                       hints=request.POST['hints'], price=this_book.price)
+        new_ord.save()
+        return render(request, 'main/taskfailedsuccessfully.html')
+    else:
+        pass
 
 
 def conditions(request):
