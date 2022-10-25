@@ -42,3 +42,11 @@ class Order(models.Model):
 
     def __str__(self):
         return self.phone_num
+
+
+class User(models.Model):
+    name = models.CharField(max_length=35, unique=True, null=False)
+    password = models.CharField(max_length=35, default='123')
+
+    def __str__(self):
+        return self.name
